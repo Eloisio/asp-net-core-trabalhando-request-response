@@ -6,10 +6,10 @@ namespace RequestResponse.NamespaceName;
 public class TesteController : Controller
 {
 
-    public IActionResult Index()
+    public IActionResult Index([FromHeader(Name = "accept-language")] string acceptLanguage)
     {
-        var file = System.IO.File.ReadAllBytes("wwwroot/Relatorios/relatorio.pdf");
-        return File(file, "application/pdf", "relatorio.pdf");
+        Console.WriteLine(acceptLanguage);
+        return View();
     }
 
 }

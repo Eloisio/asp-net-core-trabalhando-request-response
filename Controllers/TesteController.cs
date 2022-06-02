@@ -8,14 +8,8 @@ public class TesteController : Controller
 
     public IActionResult Index()
     {
-        var produto = new Produto
-        {
-            Id = 1,
-            Nome = "Notebook",
-            Descricao = "Muito bom, confia!!!",
-            Valor = 10000
-        };
-        return Json(produto);
+        var file = System.IO.File.ReadAllBytes("wwwroot/Relatorios/relatorio.pdf");
+        return File(file, "application/pdf", "relatorio.pdf");
     }
 
 }

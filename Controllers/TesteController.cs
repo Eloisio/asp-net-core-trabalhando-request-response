@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using RequestResponse.Models;
 
 namespace RequestResponse.NamespaceName;
 
@@ -7,13 +8,14 @@ public class TesteController : Controller
 
     public IActionResult Index()
     {
-        // var viewResult = new ViewResult();
-        // viewResult.ViewName = "Index";
-        // return viewResult;
-        // var partialViewResult = new PartialViewResult();
-        // partialViewResult.ViewName = "Index";
-        // return partialViewResult;
-        return PartialView();
+        var produto = new Produto
+        {
+            Id = 1,
+            Nome = "Notebook",
+            Descricao = "Muito bom, confia!!!",
+            Valor = 10000
+        };
+        return Json(produto);
     }
 
 }

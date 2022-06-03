@@ -6,10 +6,17 @@ namespace RequestResponse.NamespaceName;
 public class TesteController : Controller
 {
 
-    public IActionResult Index([FromHeader(Name = "accept-language")] string acceptLanguage)
+    public IActionResult Index()
     {
-        Console.WriteLine(acceptLanguage);
         return View();
+    }
+
+    public IActionResult Form(Produto produto)
+    {
+        Console.WriteLine(produto.Nome);
+        Console.WriteLine(produto.Descricao);
+        Console.WriteLine(produto.Valor);
+        return RedirectToAction(nameof(Index));
     }
 
 }

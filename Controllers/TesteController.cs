@@ -6,8 +6,10 @@ namespace RequestResponse.NamespaceName;
 public class TesteController : Controller
 {
 
-    public IActionResult Index()
+    public IActionResult Index([FromQuery(Name = "nome")] string name, int idade)
     {
+        Console.WriteLine(name);
+        Console.WriteLine(idade);
         return View();
     }
 
